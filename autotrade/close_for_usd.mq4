@@ -43,11 +43,12 @@ void CheckForClose()
            {
             if(!OrderClose(OrderTicket(),OrderLots(),Bid,100,White))
                Print("OrderClose error ",GetLastError());
-               
-           } else {
+             else {
                 string mailText = "Close USD at" + Bid;
               // string send_mail_rest = "http://127.0.0.1:9000/sendsms/CloseGC/" + mailText;
                Print(mailText);
+             }
+               
            }
     
         }

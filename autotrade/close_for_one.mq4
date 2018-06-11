@@ -40,14 +40,16 @@ void CheckForClose()
       if(OrderMagicNumber()== MAGICMA || OrderSymbol()==Symbol() && OrderType()==OP_BUY) {
          if(Bid > OrderOpenPrice() + gap)
            {
+          
             if(!OrderClose(OrderTicket(),OrderLots(),Bid,100,White))
                Print("OrderClose error ",GetLastError());
-               
-           } else {
+            else {
                 string mailText = "Close GC at" + Bid;
               // string send_mail_rest = "http://127.0.0.1:9000/sendsms/CloseGC/" + mailText;
                Print(mailText);
-           }
+             }
+               
+           } 
     
         }
      }
